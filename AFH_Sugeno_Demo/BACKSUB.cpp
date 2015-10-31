@@ -57,7 +57,7 @@ int BackgroundSubtraction(String learningFolder, String segmentationFolder, Stri
   }
   else {
     while(_findnext(handle_learn, &file_learn)==0) {
-      if(file_learn.attrib == 33) {
+      if(file_learn.attrib != 16) {
         cout << "learning: " << file_segm.name << "\n";
         path_img = learningFolder + file_learn.name;
         BGR = imread(path_img,IMREAD_COLOR);
@@ -120,7 +120,7 @@ int BackgroundSubtraction(String learningFolder, String segmentationFolder, Stri
   }
   else {
     while(_findnext(handle_segm, &file_segm)==0) {
-      if(file_segm.attrib == 33) {
+      if(file_segm.attrib != 16) {
         cout << "Segmentation: " << file_segm.name << "\n";
         path_img = segmentationFolder + file_segm.name;
         BGR = imread(path_img,IMREAD_COLOR);
